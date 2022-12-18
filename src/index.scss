@@ -1,0 +1,52 @@
+:root {
+    --color-primary: #176585;
+    --color-background: #F7F3CF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.container {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1400px;
+}
+
+
+
+
+button {
+    border: 0;
+    background-color: transparent;
+    border-radius: 12px;
+}
+
+.btn {
+    font-weight: 500;
+    padding: 13px 44px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.btn-primary {
+    color: white;
+    background-color: var(--color-primary);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    font-size: 16px;
+
+    &:hover {
+        background-color: var(--color-primary);
+        color: white;
+    }
+}
