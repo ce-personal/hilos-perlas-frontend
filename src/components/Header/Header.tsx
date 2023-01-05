@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.scss";
 
+
 function Header() {
     return (
         <header className="header">
@@ -17,12 +18,15 @@ function Header() {
                 </ul>
 
                 <ul>
-                    <li>Log In</li>
+                    <li>Iniciar sesión</li>
                     <ul>
-                        <button className="btn btn-primary btn-outline">Sing Up</button>
+                        <button className="btn btn-primary btn-outline">Unete</button>
                     </ul>
                 </ul>
+
+                <button className="btn btn-primary btn-outline movil">Menu</button>
             </nav>
+
         </header>
     );
 }

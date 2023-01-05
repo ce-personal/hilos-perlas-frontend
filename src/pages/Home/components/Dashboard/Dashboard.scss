@@ -1,3 +1,5 @@
+@import "./../../../../components/mixin";
+
 .dashboard {
     height: 670px;
     background-color: var(--color-background);
@@ -8,6 +10,25 @@
         line-height: 91px;
 
         color: #000000;
+
+        @include responsive-1024 {
+            font-size: 68px;
+        }
+
+        @include responsive-945 {
+            font-size: 57px;
+            line-height: 82px;
+        }
+
+        @include responsive-768 {
+            font-size: 50px;
+            line-height: 62px;
+        }
+
+        @include responsive-480 {
+            font-size: 42px;
+            line-height: 50px;
+        }
     }
 
     &-description {
@@ -17,6 +38,23 @@
         color: #333333;
 
         margin-top: 15px;
+
+        @include responsive-1024 {
+            font-size: 15px;
+        }
+
+        @include responsive-945 {
+            font-size: 13px;
+        }
+
+        @include responsive-768 {
+            margin-top: 30px;
+        }
+
+        @include responsive-480 {
+            margin-top: 22px;
+            line-height: 28px;
+        }
     }
 
     &-button {
@@ -29,7 +67,18 @@
 
         color: #FFFFFF;
         
-        padding: 18px 32px !important;
+        padding: 17px 32px !important;
+        max-width: 153px;
+        max-height: 55px;
+
+        @include responsive-768 {
+            padding: 12px 20px !important;
+            border-radius: 10px;
+        }
+
+        @include responsive-480 {
+            scale: .9;
+        }
     }
     
     
@@ -44,8 +93,32 @@
             z-index: 4;
             transition: .4s;
 
+            @include responsive-1400 {
+                width: 230px;
+                margin-right: 20px;
+                margin-top: 20px;
+            }
+
+            @include responsive-945 {
+                width: 200px;
+                margin-right: 40px;
+                margin-top: 30px;
+            }
+
+            @include responsive-768 {
+                width: 150px;
+
+                margin-top: 50px;
+                margin-right: 60px;
+            }
+
             &:hover {
                 margin-top: -10px;
+
+                @include responsive-1400 {
+                    margin-top: 5px;
+                }
+
             }
         }
     }
@@ -62,6 +135,14 @@
 
             top: 95px;
             right: 100px;
+
+            @include responsive-1024 {
+                top: 65px;
+            }
+
+            @include responsive-768 {
+                top: 35px;
+            }
         }
 
         .option:nth-child(2) {
@@ -75,6 +156,15 @@
 
             top: 285px;
             right: 178px;
+
+            @include responsive-1024 {
+                top: 265px;
+            }
+
+            @include responsive-768 {
+                top: 200px;
+                right: 158px;
+            }
         }
 
         .option:nth-child(3) {
@@ -86,8 +176,26 @@
             border-radius: 15px;
 
             z-index: 2;
-            top: 204px;
+            top: 205px;
             right: 0;
+
+            @include responsive-1024 {
+                top: 185px;
+            }
+
+            @include responsive-768 {
+                top: 145px;
+            }
+        }
+
+        * {
+            @include responsive-945 {
+                scale: .9;
+            }
+
+            @include responsive-768 {
+                scale: .7;
+            }
         }
     }
 
@@ -99,11 +207,43 @@
         .col.text-seccion {
             max-width: 535px;
             padding-top: 48px;
+            padding: 20px;
+
+            @include responsive-1024 {
+                padding-top: 10px;
+            }
         }
 
         .col.image-seccion {
             max-width: 405px;
             margin-right: 65px;
+
+            @include responsive-945 {
+                margin-right: 20px;
+            }
+
+
+            @include responsive-600 {
+                // grid-row:  1;
+
+                // width: 100%;
+                // margin: 0;
+                // max-width: none;
+
+                display: none;
+            }
         }
+
+
+        @include responsive-600 {
+            grid-template-columns: 1fr;
+        }
+    }
+
+
+
+    @include responsive-600 {
+        height: auto;
+        padding-bottom: 12px;
     }
 }

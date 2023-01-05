@@ -1,0 +1,59 @@
+.card-product {
+    padding: 26px;
+
+    background-color: white;
+    border-radius: 15px;
+
+    width: 100%;
+    max-width: 350px;
+
+    display: grid;
+
+    
+    &[data-background-color="1"]:nth-child(1n) {
+        background-color: var(--color-third);
+    }
+
+    &[data-background-color="1"]:nth-child(2n) {
+        background-color: var(--color-secondary);
+    }
+
+
+
+
+
+    .list-files {
+        display: flex;
+        justify-content: center;
+    }
+
+    .card-title {
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 34px;
+
+        margin-top: 5px;
+        color: #000000;
+    }
+
+    .price {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 34px;
+        color: #000000;
+    }
+
+
+    .score-and-shopping {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    .score-and-shopping {
+        .btn {
+            border-radius: 10px;
+        }
+    }
+}

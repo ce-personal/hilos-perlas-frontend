@@ -1,0 +1,106 @@
+@import "./../../../../components/mixin";
+
+.inspiration {
+    padding-top: 110px;
+    padding-bottom: 110px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    
+    &-text {
+        .title {
+            max-width: 400px;
+            font-weight: 700;
+            font-size: 47px;
+            line-height: 60px;
+
+            color: #000000;
+
+
+            @include responsive-1024 {
+                font-size: 43px;
+                max-width: 100%;
+            }
+        
+        
+            @include responsive-945 {
+                font-size: 35px;
+                line-height: 38px;
+            }
+
+            @include responsive-768 {
+                font-size: 32px;
+            }
+
+            @include responsive-375 {
+                font-size: 28px;
+            }
+        }
+
+        p {
+            margin-top: 20px;
+            max-width: 550px;
+
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 34px;
+
+            color: #000000;
+
+            @include responsive-768 {
+                font-size: 14px;
+                line-height: 29px;
+            }
+        }
+
+        button {
+            padding-left: 30px;
+            padding-right: 30px;
+
+            border-radius: 10px;
+            margin-top: 67px;
+
+            @include responsive-768 {
+                margin-top: 40px;
+            }
+        }
+    }
+
+    &-image {
+        @include responsive-768 {
+            display: flex;
+        }
+        
+        @include responsive-600 {
+            display: none;
+        }
+
+        img {
+            margin: 0 auto 0 auto;
+            display: block;
+
+            @include responsive-945 {
+                max-width: 350px;
+            }
+
+            @include responsive-768 {
+                margin: auto;
+                display: flex;
+                align-items: center;
+                max-width: 335px;
+            }
+        }
+    }
+
+
+    @include responsive-945 {
+        padding-top: 80px;
+    }
+
+    @include responsive-600 {
+        grid-template-columns: 1fr;
+
+        padding-bottom: 80px;
+    }
+}

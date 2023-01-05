@@ -1,3 +1,5 @@
+@import "./../mixin";
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -17,6 +19,12 @@ nav {
 
         .header-logo {
             margin-right: 50px;
+
+            img {
+                @include responsive-768 {
+                    width: 25px;
+                }
+            }
         }
 
         li {
@@ -30,6 +38,37 @@ nav {
             &.active {
                 font-weight: 700;
             }
+
+
+            &:not(.header-logo) {
+                @include responsive-945 {
+                    display: none;
+                }
+            }
         }
+    }
+
+    .btn {
+        @include responsive-945 {
+            font-size: 14px;
+        }
+
+
+        @include responsive-768 {
+            display: none;
+        }
+    }
+
+    .movil {
+        display: none;
+        padding: 12px 20px !important;
+
+        @include responsive-768 {
+            display: initial;
+        }
+    }
+
+    @include responsive-600 {
+        height: 100px;
     }
 }
