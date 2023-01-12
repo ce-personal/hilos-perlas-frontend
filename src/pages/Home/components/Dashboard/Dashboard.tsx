@@ -11,17 +11,17 @@ class HomeDashboard extends React.Component {
 
                 <div className="container dashboard-row">
                     <div className="col text-seccion">
-                        <h1 className="dashboard-title">The right time for life</h1>
+                        <h1 className="dashboard-title">El límite lo pones tú</h1>
                     
-                        <p className="dashboard-description">Watches have proved themselves from the start in the most extreme conditions imaginable – from the depths of the deepest oceans to the summits of the highest mountains, </p>
+                        <p className="dashboard-description">Hilos y perlas te da la bienvenida a la tienda virtual, esperamos conozcas nuestros productos y nos des el gusto de atenderte seria un placer para nosotros. </p>
                     
                     
-                        <button className="dashboard-button btn btn-primary">Order Now</button>
+                        <button className="dashboard-button btn btn-primary">¡Ordena ya!</button>
                     </div>
 
                     <div className="col image-seccion">
-                        <img src="/assets/dashboard/image-1.svg" alt="Imagen principal" />
-                        {/* <img src="/assets/dashboard/joyas-personalizadas.png" alt="Imagen principal" /> */}
+                        {/* <img src="/assets/dashboard/image-1.svg" alt="Imagen principal" /> */}
+                        <img src="/assets/dashboard/image-1.png" alt="Imagen principal" />
 
                         <div className="decoration">
                             <div className="option"></div>

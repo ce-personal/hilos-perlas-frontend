@@ -8,13 +8,13 @@ function Header() {
             <nav className="container">
                 <ul>
                     <li className="header-logo"> 
-                        <img src="/assets/logo.svg" alt="Logo" />
+                        <img src="/assets/Logo.png" alt="Logo" />
                     </li>
                     
-                    <li className="active">Features</li>
-                    <li>Collections</li>
-                    <li>Packaging</li>
-                    <li>Services</li>
+                    <li className="active">Mas vendidos</li>
+                    <li>Mejor colección</li>
+                    <li>Nuestros productos</li>
+                    <li>Sobre nosotros</li>
                 </ul>
 
                 <ul>

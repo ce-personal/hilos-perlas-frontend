@@ -21,6 +21,7 @@
             
             img {
                 cursor: pointer;
+                height: 24px;
 
                 @include responsive-480 {
                     scale: .9;
@@ -40,6 +41,7 @@
             font-weight: 700;
             font-size: 50px;
             line-height: 57%;
+            line-height: 1.2;
             
             color: #000000;
 
@@ -112,6 +114,14 @@
     @include responsive-375 {
         margin-top: 22px;
     }
+
+    img.image-card {
+        width: 100%;
+        object-fit: cover;
+
+        max-height: 295px;
+        border-radius: 8px;
+    }
     
 }
 
@@ -130,6 +140,10 @@
             position: relative;
             z-index: 3;
             top: 32px;
+
+            max-width: 300px;
+            border-radius: 8px;
+            object-fit: cover;
         }
 
         .decoration {

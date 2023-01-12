@@ -17,31 +17,30 @@ class Footer extends React.Component<IPropFooter, IStateFooter> {
 
     componentDidMount(): void {
         this.setState({
-            ourService: ["Luxuty Brads", "Free Returen", "24/7 Service"]
+            ourService: ["Productos de calidad", "100% de calidad", "Servicio 24/7"]
         });
 
         this.setState({
             categoryProduct: [
-                { id: '1', description: '', name: 'Apple watch', recordId: '1'  },
-                { id: '2', description: '', name: 'Rolex', recordId: '1'  },
-                { id: '3', description: '', name: 'Omega', recordId: '1'  },
+                { id: '1', description: '', name: 'Pulseras', recordId: '1'  },
+                { id: '2', description: '', name: 'Chapas', recordId: '1'  },
+                { id: '3', description: '', name: 'Cadenas', recordId: '1'  },
             ]
         });
 
         this.setState({
             contact: [
-                { name: 'S.E.D Road-12011', url: '' },
-                { name: 'Phone: 12345678911', url: '' },
-                { name: 'S.E.D gorup@gmail.com', url: '' },
+                { name: 'Managua, Nicaragua', url: '' },
+                { name: 'Phone: +505 8269 4705', url: '' },
+                { name: 'hilosyperla5@gmail.com', url: '' },
             ]
         });
 
         this.setState({
             aboutUs: [
-                { name: 'watches have', url: '' },
-                { name: 'proved themselves', url: '' },
-                { name: 'the start in', url: '' },
-                { name: 'highest mountains', url: '' }
+                { name: 'Nuestros inicios', url: '' },
+                { name: 'Nuestro personal', url: '' },
+                { name: 'Mas de nosotros', url: '' },
             ]
         });
     }
@@ -55,7 +54,7 @@ class Footer extends React.Component<IPropFooter, IStateFooter> {
             <main className="container footer">
                 <div className="footer-information">
                     <div className="col">
-                        <h3>Our service</h3>
+                        <h3>Nuestro servicio</h3>
 
                         <div className="lines">
                             {
@@ -65,7 +64,7 @@ class Footer extends React.Component<IPropFooter, IStateFooter> {
                     </div>
 
                     <div className="col">
-                        <h3>Product</h3>
+                        <h3>Productos</h3>
 
                         <div className="lines">
                             {
@@ -77,7 +76,7 @@ class Footer extends React.Component<IPropFooter, IStateFooter> {
                     </div>
 
                     <div className="col">
-                        <h3>About us</h3>
+                        <h3>Acerca de</h3>
 
                         <div className="lines">
                             {
@@ -89,7 +88,7 @@ class Footer extends React.Component<IPropFooter, IStateFooter> {
                     </div>
 
                     <div className="col">
-                        <h3>Contact</h3>
+                        <h3>Contacto</h3>
 
                         <div className="lines">
                             {
@@ -104,12 +103,12 @@ class Footer extends React.Component<IPropFooter, IStateFooter> {
 
                 <div className="footer-red">
                     <div className="col">
-                        <p>2022 Copyright By Alhamdulla Gorup.</p>
-                        <p>All Rights Resetved</p>
+                        <p>2022 - Managua, Nicaragua.</p>
+                        <p>Todos los derechos reservados</p>
                     </div>
 
-                    <div className="col">
-                        <img src="/assets/logo.svg" alt="Logo de la empresa" />
+                    <div className="col image-logo">
+                        <img src="/assets/Logo.png" alt="Logo de la empresa" />
                     </div>
 
                     <div className="col">

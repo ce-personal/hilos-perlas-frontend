@@ -6,11 +6,11 @@ class Inspiration extends React.Component {
         return (
             <main className="container inspiration">
                 <div className="inspiration-text">
-                    <h1 className="title">Making every moment of your life perfect</h1>
-                    <p>watches have proved themselves from the start in the most extreme conditions imaginable – from the depths of the deepest oceans to the summits of the highest mountains, </p>
+                    <h1 className="title">Haciendo cada momento de tu vida perfecta</h1>
+                    <p>Qué mejor manera de hacer los momentos perfectos que regalando un detalle hermoso hecho a la medida y perfección que usted desea. Con productos de calidad  y al mejor precios. </p>
 
 
-                    <button className="btn btn-primary"> Learn more </button>
+                    <button className="btn btn-primary"> Leer más </button>
                 </div>
                 
                 <div className="inspiration-image">

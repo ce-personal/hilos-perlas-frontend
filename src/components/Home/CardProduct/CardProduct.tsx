@@ -11,7 +11,7 @@ class CardProduct extends React.Component<IPropCardProduct> {
                 <div className="list-files">
                     {
                         this.props.product.listFile?.map(a => (
-                            <img key={a.id} src={a.stringFile} alt={a.id + " No cargo correctamente"} />
+                            <img className="image-card" key={a.id} src={a.stringFile} alt={a.id + " No cargo correctamente"} />
                         ))
                     }
                 </div>

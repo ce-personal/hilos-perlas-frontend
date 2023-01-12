@@ -25,18 +25,18 @@ class BestColletion extends React.Component<IPropBestColletion, IStateBestCollet
         this.setState({
             listProduct: [
                 // @ts-ignore
-                { id: '0', name: "Apple Watch", price: '$450', quantity: 2, categoryId: '', customProductId: '', date: new Date(), description: '', recordId: '', listFile: [ { id: '1', stringFile: "/assets/bestColletion/apple-watch.png" }]  },
+                { id: '0', name: "Pulseras minimalistas", price: 'C$ 120', quantity: 2, categoryId: '', customProductId: '', date: new Date(), description: '', recordId: '', listFile: [ { id: '1', stringFile: "/assets/bestColletion/image-1.png" }]  },
                 // @ts-ignore
-                { id: '1', name: "Cartier", price: '$450', quantity: 2, categoryId: '', customProductId: '', date: new Date(), description: '', recordId: '', listFile: [ { id: '2', stringFile: "/assets/bestColletion/cartier.png" }] },
+                { id: '1', name: "Pulsera de inicial", price: 'C$ 80', quantity: 2, categoryId: '', customProductId: '', date: new Date(), description: '', recordId: '', listFile: [ { id: '2', stringFile: "/assets/bestColletion/image-2.png" }] },
                 // @ts-ignore
-                { id: '2', name: "Seiko", price: '$450', quantity: 2, categoryId: '', customProductId: '', date: new Date(), description: '', recordId: '', listFile: [ { id: '3', stringFile: "/assets/bestColletion/seiko.png" }] }
+                { id: '2', name: "Pulsera tropical", price: 'C$ 100', quantity: 2, categoryId: '', customProductId: '', date: new Date(), description: '', recordId: '', listFile: [ { id: '3', stringFile: "/assets/bestColletion/image-3.png" }] }
             ]
         })
     }
 
     generateButton(product: IProduct) {
         return (
-            <button className="btn btn-primary">Buy now</button>
+            <button className="btn btn-primary">Comprar</button>
         )
     }
 
@@ -44,7 +44,7 @@ class BestColletion extends React.Component<IPropBestColletion, IStateBestCollet
         return (
             <main className="container best-colletion">
                 <div className="title">
-                    <h2>Our Best Collection</h2>
+                    <h2>Nuestra mejor colección</h2>
 
                     <div className="directional">
                         <img src={this.directionalImageList.leftDisabled} alt="" />
@@ -63,20 +63,20 @@ class BestColletion extends React.Component<IPropBestColletion, IStateBestCollet
 
                 <div className="principal-product">
                     <div className="product-image">
-                        <div className="decoration">
+                        {/* <div className="decoration">
                             <div className="option"></div>
                             <div className="option"></div>
-                        </div>
+                        </div> */}
 
-                        <img src="/assets/bestColletion/rolex-milgauss.png" alt="" />
+                        <img src="/assets/bestColletion/principal.png" alt="" />
                     </div>
 
                     <div className="product-description">
-                        <h3>Rolex Milgauss</h3>
+                        <h3>Pulseras compartidas</h3>
 
-                        <p>watches have proved themselves from the start in the most extreme conditions imaginable – from the depths of the deepest oceans to the summits of the highest mountains.</p>
+                        <p>Comparte con tu mejor amigo, pareja, o esposa una hermosa recuerde en donde le demuestres a tu persona especial un hermoso y simple regalo en donde le demuestras un poco de cuanto la quieres.</p>
 
-                        <button className="btn btn-primary">Buy now</button>
+                        <button className="btn btn-primary">Comprar</button>
                     </div>
                 </div>
             </main>

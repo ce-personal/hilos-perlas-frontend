@@ -71,4 +71,15 @@ nav {
     @include responsive-600 {
         height: 100px;
     }
+
+
+    .header-logo {
+        margin-right: 0 !important;
+
+        img {
+            width: 125px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+    }
 }

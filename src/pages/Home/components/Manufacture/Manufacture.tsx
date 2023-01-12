@@ -6,10 +6,10 @@ class Manufacture extends React.Component {
         return (
             <main className="manufacture container">
                 <div className="manufacture-description">
-                    <h2>Our manufacture</h2>
-                    <p>watches have proved themselves from the start in the most extreme conditions imaginable – from the depths of the deepest oceans to the summits of the highest mountains.</p>
+                    <h2>Nuestra Fabricación</h2>
+                    <p>Nuestra labor al momento de elaborar cada uno de las prendas es hacerlo con amor y pasión de forma que quede impregnado esa esencia que usted le quiere dar a su producto.</p>
 
-                    <button className="btn btn-primary">Learn more</button>
+                    <button className="btn btn-primary">Leer más</button>
                 </div>
 
 
