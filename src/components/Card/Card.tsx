@@ -1,5 +1,5 @@
 // @mui
-import { Box, Card, Link, Typography, Stack, Paper, Button } from '@mui/material';
+import { Box, Card, Link, Typography, Stack, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 // components
@@ -60,7 +60,7 @@ const StyledHoverProduct = styled("div")({
 // ----------------------------------------------------------------------
 
 export default function ShopProductCard({ product }) {
-    const { name, price, status, id, isEditable } = product.product;
+    const { name, price, status, isEditable } = product.product;
 
     const [cover, setCover] = useState();
     const [loading, setLoading] = useState(false);

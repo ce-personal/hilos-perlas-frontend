@@ -1,11 +1,8 @@
 import axios from "axios";
 import React from "react";
 import ShopProductCard from "../../../../components/Card/Card";
-import CardProduct from "../../../../components/Home/CardProduct/CardProduct";
 import env from "../../../../env";
-import { backgroundCardProduct } from "../../../../utils/interface/components/ICardProduct";
 import { IPropProduct, IStateProduct } from "../../../../utils/interface/components/IProduct";
-import IProduct from "../../../../utils/interface/shop/IProduct";
 import "./Product.scss";
 
 
