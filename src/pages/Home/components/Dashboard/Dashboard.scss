@@ -2,7 +2,7 @@
 
 .dashboard {
     height: 670px;
-    background-color: #ddd;
+    background-color: #dee7f1;
     
     &-title {
         font-weight: 700;
@@ -58,18 +58,20 @@
     }
 
     &-button {
-        margin-top: 45px;
+        margin-top: 45px !important;
 
-        font-weight: 700;
+        font-weight: 700 !important;
         font-size: 16px;
-        line-height: 20px;
-        text-transform: capitalize;
+        line-height: 20px !important;
+        text-transform: capitalize !important;
 
         color: #FFFFFF;
         
         padding: 17px 32px !important;
         max-width: 160px;
         max-height: 55px;
+
+        border-radius: 50px !important;
 
         @include responsive-768 {
             padding: 12px 20px !important;

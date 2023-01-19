@@ -10,6 +10,12 @@
     }
 }
 
+@mixin responsive-1200 {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
 @mixin responsive-1024 {
     @media screen and (max-width: 1024px) {
         @content;

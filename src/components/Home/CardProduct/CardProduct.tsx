@@ -9,11 +9,11 @@ class CardProduct extends React.Component<IPropCardProduct> {
         return (
             <main className="card-product" data-background-color={this.props.background}>
                 <div className="list-files">
-                    {
+                    {/* {
                         this.props.product.listFile?.map(a => (
                             <img className="image-card" key={a.id} src={a.stringFile} alt={a.id + " No cargo correctamente"} />
                         ))
-                    }
+                    } */}
                 </div>
 
                 <div className="description">

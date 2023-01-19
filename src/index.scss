@@ -1,5 +1,7 @@
 @import "./components/mixin";
 
+
+
 :root {
     // --color-background: rgb(229, 246, 253);
     // --color-background: #f0e1c2;
@@ -15,8 +17,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    // font-family: 'Montserrat', sans-serif;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: Roboto, sans-serif;
+    // font-family: 'Plus Jakarta Sans', sans-serif;
 
     text-decoration: none;
 }

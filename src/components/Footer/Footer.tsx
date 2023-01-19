@@ -51,7 +51,7 @@ class Footer extends React.Component<IPropFooter, IStateFooter> {
 
     render(): React.ReactNode {
         return (
-            <main className="container footer">
+            <main className="container footer" id="about">
                 <div className="footer-information">
                     <div className="col">
                         <h3>Nuestro servicio</h3>

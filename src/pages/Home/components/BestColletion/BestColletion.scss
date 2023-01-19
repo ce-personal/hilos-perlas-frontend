@@ -70,65 +70,67 @@
 
 .list-best-colletion {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 20px;
-    max-width: 1200px;
+    // max-width: 1200px;
     margin: auto;
 
     margin-top: 60px;
-
-    @include responsive-1024 {
-        button {
-            padding: 13px 20px;
-        }
-    }
-
-    @include responsive-945 {
-        .card-product {
-            scale: 0.9;
-        }
-
-        gap: 0;
-    }
-
-    @include responsive-768 {
-        margin-top: 40px;
+    overflow: hidden;
     
+    max-width: 1260px;
+    padding-bottom: 20px;
+    
+    @include responsive-1200 {
+        & > *:nth-child(4) {
+            display: none;
+        }
+    }
+
+    & > div {
+        // width: calc(100% / 4px);
+        min-width: calc(25% - 15px);
         
-        .card-product:nth-child(3) {
-            display: none;
+        @include responsive-1200 {
+            min-width: calc(27% - 15px);
+            
+            &:nth-child(4) {
+                display: none;
+            }
+        }
+
+        @include responsive-1024 {
+            min-width: calc(30% - 15px);
+        }
+
+        @include responsive-945 {
+            &:nth-child(3) {
+                display: none;
+            }
+
+            min-width: calc(40% - 15px);
+        }
+
+        @include responsive-768 {
+            min-width: calc(48% - 15px);
+        }
+
+
+        @include responsive-600 {
+            min-width: 100%;
+            
+            &:nth-child(2) {
+                display: none;
+            } 
         }
     }
 
-    @include responsive-600 {
-        .card-product:nth-child(2) {
-            display: none;
-        }
-
-        .card-product:nth-child(1) {
-            margin: auto;
-        }
-    }
-
-
-    @include responsive-375 {
-        margin-top: 22px;
-    }
-
-    img.image-card {
-        width: 100%;
-        object-fit: cover;
-
-        max-height: 295px;
-        border-radius: 8px;
-    }
-    
 }
 
 .principal-product {
     display: flex;
     justify-content: center;
-    margin-top: 110px;
+    margin-top: 70px;
     gap: 90px;
 
 
@@ -240,7 +242,7 @@
         }
 
         button {
-            border-radius: 10px;
+            // border-radius: 10px;
             margin-top: 50px;
 
             @include responsive-768 {
@@ -252,7 +254,7 @@
 
     @include responsive-945 {
         gap: 0;
-        margin-top: 80px;
+        margin-top: 50px;
         padding-left: 12px;
     }
 
@@ -262,9 +264,11 @@
 
     @include responsive-600 {
         padding-left: 0;
+
+        justify-content: start;
     }
 
     @include responsive-375 {
-        margin-top: 20px;
+        margin-top: 0px;
     }
 }

@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import React from "react";
 import "./Manufacture.scss";
 
@@ -9,7 +10,9 @@ class Manufacture extends React.Component {
                     <h2>Nuestra Fabricación</h2>
                     <p>Nuestra labor al momento de elaborar cada uno de las prendas es hacerlo con amor y pasión de forma que quede impregnado esa esencia que usted le quiere dar a su producto.</p>
 
-                    <button className="btn btn-primary">Leer más</button>
+
+                    <Button variant="contained"> Leer más </Button>
+                    {/* <button className="btn btn-primary">Leer más</button> */}
                 </div>
 
 

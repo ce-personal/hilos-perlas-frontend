@@ -1,10 +1,12 @@
 import React from "react";
-import CardProduct from "../../../../components/Home/CardProduct/CardProduct";
 import { IPropBestColletion, IStateBestColletion } from "../../../../utils/interface/components/IBestColletion";
-import { backgroundCardProduct } from "../../../../utils/interface/components/ICardProduct";
-import IProduct from "../../../../utils/interface/shop/IProduct";
+import axios from "axios";
 
 import "./BestColletion.scss";
+import env from "../../../../env";
+import ShopProductCard from "../../../../components/Card/Card";
+import { Button, Grid } from "@mui/material";
+import IProduct from "../../../../utils/interface/shop/IProduct";
 
 
 class BestColletion extends React.Component<IPropBestColletion, IStateBestColletion> {
@@ -18,65 +20,55 @@ class BestColletion extends React.Component<IPropBestColletion, IStateBestCollet
     constructor(props: any) {
         super(props);
 
-        this.state = { listProduct: [] }
+        this.state = { listProduct: [], mainProduct: null, mainFile: '' }
     }
     
-    componentDidMount(): void {
-        this.setState({
-            listProduct: [
-                // @ts-ignore
-                { id: '0', name: "Pulseras minimalistas", price: 'C$ 120', quantity: 2, categoryId: '', customProductId: '', date: new Date(), description: '', recordId: '', listFile: [ { id: '1', stringFile: "/assets/bestColletion/image-1.png" }]  },
-                // @ts-ignore
-                { id: '1', name: "Pulsera de inicial", price: 'C$ 80', quantity: 2, categoryId: '', customProductId: '', date: new Date(), description: '', recordId: '', listFile: [ { id: '2', stringFile: "/assets/bestColletion/image-2.png" }] },
-                // @ts-ignore
-                { id: '2', name: "Pulsera tropical", price: 'C$ 100', quantity: 2, categoryId: '', customProductId: '', date: new Date(), description: '', recordId: '', listFile: [ { id: '3', stringFile: "/assets/bestColletion/image-3.png" }] }
-            ]
-        })
-    }
+    async componentDidMount(): Promise<void> {
+        const response = await axios.get(`${env.API_URL}/Product/GetListBestProduct`);
 
-    generateButton(product: IProduct) {
-        return (
-            <button className="btn btn-primary">Comprar</button>
-        )
+        const mainProduct: IProduct = response.data[0].product;
+        const mainFile = response.data[0].files.find(a => a.isItMainFile);
+        response.data.shift();
+
+        this.setState({ listProduct: response.data, mainFile: mainFile.stringFile, mainProduct: mainProduct });
     }
 
     render(): React.ReactNode {
         return (
-            <main className="container best-colletion">
+            <main className="container best-colletion" id="best-colletion">
                 <div className="title">
                     <h2>Nuestra mejor colección</h2>
 
                     <div className="directional">
                         <img src={this.directionalImageList.leftDisabled} alt="" />
-                        <img src={this.directionalImageList.right} alt="" />
+                        <img src={this.directionalImageList.rightDisabled} alt="" />
                     </div>
                 </div>
 
 
-                <div className="list-best-colletion">
+                <div className="list-best-colletion">    
                     {
-                        this.state.listProduct.map(a => <CardProduct key={a.id} product={a} button={this.generateButton(a)} background={backgroundCardProduct.random} />)
+                        this.state.listProduct.map(a => <ShopProductCard key={a.id} product={a} />)
+                        // this.state.listProduct.map(a => <CardProduct key={a.id} product={a} button={this.generateButton(a)} background={backgroundCardProduct.random} />)
                     }
                 </div>
 
 
 
-                <div className="principal-product">
+                <div className="principal-product" id="main-product">
                     <div className="product-image">
-                        {/* <div className="decoration">
-                            <div className="option"></div>
-                            <div className="option"></div>
-                        </div> */}
-
-                        <img src="/assets/bestColletion/principal.png" alt="" />
+                        <img src={this.state.mainFile} alt="" />
                     </div>
 
                     <div className="product-description">
-                        <h3>Pulseras compartidas</h3>
+                        <h3>{this.state.mainProduct?.name || "Cargando..."}</h3>
 
-                        <p>Comparte con tu mejor amigo, pareja, o esposa una hermosa recuerde en donde le demuestres a tu persona especial un hermoso y simple regalo en donde le demuestras un poco de cuanto la quieres.</p>
+                        <p>{this.state.mainProduct?.description || "Cargando..."}</p>
 
-                        <button className="btn btn-primary">Comprar</button>
+                        <Button variant="contained">
+                            Comprar
+                        </Button>
+                        {/* <button className="btn btn-primary">Comprar</button> */}
                     </div>
                 </div>
             </main>

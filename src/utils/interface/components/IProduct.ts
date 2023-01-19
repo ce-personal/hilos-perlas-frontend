@@ -6,6 +6,5 @@ export interface IPropProduct {
 }
 
 export interface IStateProduct {
-    listCategory: ICategory[]
-    listProductByCategoryId: IProduct[]
+    listProduct: IProduct[]
 }

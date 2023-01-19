@@ -15,7 +15,7 @@ nav {
     ul {
         display: flex;
         align-items: inherit;
-        gap: 32px;
+        gap: 15px;
 
         .header-logo {
             margin-right: 50px;
@@ -46,9 +46,21 @@ nav {
                 }
             }
         }
+
+        &:nth-child(2) {
+            gap: 10px;
+        }
     }
 
     .btn {
+        font-weight: 500 !important;
+        padding: 13px 40px !important;
+        border-radius: 50px !important;
+        border-width: 2px !important;
+        text-transform: capitalize;
+
+        line-height: normal !important;
+
         @include responsive-945 {
             font-size: 14px;
         }
@@ -82,4 +94,15 @@ nav {
             border-radius: 15px;
         }
     }
+}
+
+.btn-log-in {
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+    text-transform: capitalize !important;
+    color: #333333 !important;
+
+    padding: 13px 20px !important;
+    border-radius: 50px !important;
 }

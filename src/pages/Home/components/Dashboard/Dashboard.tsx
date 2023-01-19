@@ -2,6 +2,9 @@ import React from "react";
 import Header from "../../../../components/Header/Header";
 import "./Dashboard.scss";
 
+import { Button } from "@mui/material";
+import { goToElement } from "../../../../utils/service/GoToPage";
+
 class HomeDashboard extends React.Component {
     render(): React.ReactNode {
         return (
@@ -16,7 +19,10 @@ class HomeDashboard extends React.Component {
                         <p className="dashboard-description">Hilos y perlas te da la bienvenida a la tienda virtual, esperamos conozcas nuestros productos y nos des el gusto de atenderte seria un placer para nosotros. </p>
                     
                     
-                        <button className="dashboard-button btn btn-primary">¡Ordena ya!</button>
+                        <Button data-ref="best-colletion" onClick={(a) => goToElement(a)} variant="contained" className="dashboard-button btn btn-primary">
+                            ¡Ordena ya!
+                        </Button>
+                        {/* <button className="dashboard-button btn btn-primary">¡Ordena ya!</button> */}
                     </div>
 
                     <div className="col image-seccion">

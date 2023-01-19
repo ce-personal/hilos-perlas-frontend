@@ -1,6 +1,6 @@
-import React from "react";
+import { Button } from "@mui/material";
+import { goToElement } from "../../utils/service/GoToPage";
 import "./Header.scss";
-
 
 function Header() {
     return (
@@ -11,20 +11,33 @@ function Header() {
                         <img src="/assets/Logo.png" alt="Logo" />
                     </li>
                     
-                    <li className="active">Mas vendidos</li>
-                    <li>Mejor colección</li>
-                    <li>Nuestros productos</li>
-                    <li>Sobre nosotros</li>
+                    <li>
+                        <Button onClick={(e) => goToElement(e)} data-ref="best-colletion" variant="text" color="inherit"> Mejor colección </Button>
+                    </li>
+
+                    <li>
+                        <Button onClick={(e) => goToElement(e)} data-ref="main-product" variant="text" color="inherit"> Mas vendido </Button>
+                    </li>
+                    <li>
+                        <Button onClick={(e) => goToElement(e)} data-ref="our-product" variant="text" color="inherit"> Nuestros productos </Button>
+                    </li>
+                    <li>
+                        <Button onClick={(e) => goToElement(e)} data-ref="about" variant="text" color="inherit"> Sobre nosotros </Button>
+                    </li>
                 </ul>
 
                 <ul>
-                    <li>Iniciar sesión</li>
+                    <li>
+                        <Button className="btn-log-in"> Iniciar sesión </Button>
+                    </li>
                     <ul>
-                        <button className="btn btn-primary btn-outline">Unete</button>
+                        <Button variant="outlined" className="btn">Unete</Button>
+                        {/* <button className="btn btn-primary btn-outline">Unete</button> */}
                     </ul>
                 </ul>
 
-                <button className="btn btn-primary btn-outline movil">Menu</button>
+                <Button variant="outlined" className="btn movil">Unete</Button>
+
             </nav>
 
         </header>

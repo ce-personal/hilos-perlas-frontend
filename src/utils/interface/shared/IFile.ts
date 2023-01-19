@@ -11,7 +11,7 @@ interface IFile {
     firstLevelId: string
     secondLevelId: string
     thirdLevelId: string
-    IsItMainFile: boolean
+    isItMainFile: boolean
 
 
     record: IUserAdmin

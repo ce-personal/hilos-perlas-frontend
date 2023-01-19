@@ -21,7 +21,7 @@ interface IProduct {
     category?: ICategory
     customProduct?: ICustomProduct
 
-    listFile?: IFile[]
+    files?: IFile[]
     listScore?: IScore[]
 }
 
