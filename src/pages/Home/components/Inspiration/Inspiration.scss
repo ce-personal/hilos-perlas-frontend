@@ -79,6 +79,11 @@
             margin: 0 auto 0 auto;
             display: block;
 
+            object-fit: cover;
+            height: 409px;
+            width: 100%;
+            border-radius: 10px;
+
             @include responsive-945 {
                 max-width: 350px;
             }
