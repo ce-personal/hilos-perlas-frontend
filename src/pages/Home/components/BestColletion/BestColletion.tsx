@@ -7,6 +7,9 @@ import env from "../../../../env";
 import ShopProductCard from "../../../../components/Card/Card";
 import { Button } from "@mui/material";
 import IProduct from "../../../../utils/interface/shop/IProduct";
+import { openOffCanvas } from "../../../../utils/service/OffCanvas";
+import ReactDOM from "react-dom";
+import ProductShop from "../../../Product/Shop";
 
 
 class BestColletion extends React.Component<IPropBestColletion, IStateBestColletion> {
@@ -20,7 +23,7 @@ class BestColletion extends React.Component<IPropBestColletion, IStateBestCollet
     constructor(props: any) {
         super(props);
 
-        this.state = { listProduct: [], mainProduct: null, mainFile: '' }
+        this.state = { listProduct: [], mainProduct: null, mainFile: '', dom: null }
     }
     
     async componentDidMount(): Promise<void> {
@@ -33,23 +36,40 @@ class BestColletion extends React.Component<IPropBestColletion, IStateBestCollet
         this.setState({ listProduct: response.data, mainFile: mainFile.stringFile, mainProduct: mainProduct });
     }
 
+    openShowProduct(id: string) {
+        openOffCanvas("shop-product");
+        
+        const parent = document.getElementById("shop-product");
+        parent.innerHTML = "";
+        const portal = (ReactDOM.createPortal(<ProductShop productId={id} />, parent));
+
+        this.setState({ dom: portal });
+
+        parent.scrollBy(
+            {
+                behavior: "smooth",
+                top: 0
+            }
+        )
+    };
+
     render(): React.ReactNode {
         return (
             <main className="container best-colletion" id="best-colletion">
+                {this.state.dom}
                 <div className="title">
-                    <h2>Nuestra mejor colección</h2>
+                    <h2>{this.props.title || "Nuestra mejor colección" } </h2>
 
-                    <div className="directional">
+                    {/* <div className="directional">
                         <img src={this.directionalImageList.leftDisabled} alt="" />
                         <img src={this.directionalImageList.rightDisabled} alt="" />
-                    </div>
+                    </div> */}
                 </div>
 
 
                 <div className="list-best-colletion">    
                     {
-                        this.state.listProduct.map(a => <ShopProductCard key={a.id} product={a} />)
-                        // this.state.listProduct.map(a => <CardProduct key={a.id} product={a} button={this.generateButton(a)} background={backgroundCardProduct.random} />)
+                        this.state.listProduct.map(a => <ShopProductCard buttonBuy={null} key={a.product.id} product={a} />)
                     }
                 </div>
 

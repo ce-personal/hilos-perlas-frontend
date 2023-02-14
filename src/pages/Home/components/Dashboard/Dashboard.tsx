@@ -4,6 +4,7 @@ import "./Dashboard.scss";
 
 import { Button } from "@mui/material";
 import { goToElement } from "../../../../utils/service/GoToPage";
+import { Link, Navigate } from "react-router-dom";
 
 class HomeDashboard extends React.Component {
     render(): React.ReactNode {
@@ -19,14 +20,14 @@ class HomeDashboard extends React.Component {
                         <p className="dashboard-description">Hilos y perlas te da la bienvenida a la tienda virtual, esperamos conozcas nuestros productos y nos des el gusto de atenderte seria un placer para nosotros. </p>
                     
                     
-                        <Button data-ref="best-colletion" onClick={(a) => goToElement(a)} variant="contained" className="dashboard-button btn btn-primary">
-                            ¡Ordena ya!
-                        </Button>
-                        {/* <button className="dashboard-button btn btn-primary">¡Ordena ya!</button> */}
+                        <Link to="/" className="btn-orden-now">
+                            <Button data-ref="best-colletion" onClick={(a) => goToElement(a)} variant="contained" className="dashboard-button btn btn-primary">
+                                ¡Ordena ya!
+                            </Button>
+                        </Link>
                     </div>
 
                     <div className="col image-seccion">
-                        {/* <img src="/assets/dashboard/image-1.svg" alt="Imagen principal" /> */}
                         <img src="/assets/dashboard/image-1.png" alt="Imagen principal" />
 
                         <div className="decoration">

@@ -47,45 +47,6 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
-button {
-    border: 0;
-    background-color: transparent;
-    border-radius: 100px;
-}
-
-.btn {
-    font-weight: 500;
-    padding: 13px 44px;
-    cursor: pointer;
-    transition: .4s;
-
-
-    @include responsive-945 {
-        padding: 12px 25px;
-        font-size: 12px;
-    }
-}
-
-.btn-primary {
-    color: white;
-    background-color: var(--color-primary);
-}
-
-.btn-outline {
-    background-color: transparent;
-    border: 2px solid var(--color-primary);
-    color: var(--color-primary);
-    font-size: 16px;
-
-    &:hover {
-        background-color: var(--color-primary);
-        color: white;
-    }
-}
-
-
-
-
 
 
 
@@ -113,4 +74,115 @@ button {
         background-color: #000000;    
         border-radius: 50px;
     }
+}
+
+
+html {
+    height: 100%;
+
+    body {
+        height: 100%;
+
+        #root {
+            height: inherit;
+        }
+    }
+}
+
+
+
+
+
+
+// Off canvas style 
+.off-canvas {
+    position: fixed;
+
+    height: calc(100vh - 80px);
+    width: 100%;
+
+    background-color: white;
+    z-index: 150;
+
+    bottom: -100%;
+    // left: 40px;
+    transition: opacity .6s, bottom .6s;
+    border-radius: 12px 12px 0px 0px;
+
+    padding: 64px 0;
+
+    overflow: overlay;
+
+    &.open {
+        bottom: 0;
+        
+        .off-close {
+            position: fixed;
+            top: 23px;
+            right: 24px;
+            width: 40px;
+            background-color: white;
+            height: 40px;
+            border-radius: 100%;
+            background-image: url(https://cdn-icons-png.flaticon.com/512/657/657059.png);
+            background-size: 12px;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            border: 0;
+        }
+    }
+
+
+    @include responsive-768 {
+        padding-top: 45px;
+    }
+    
+    @include responsive-530 {
+        padding-top: 30px;
+    }
+    
+}
+
+body.off {
+    overflow: hidden;
+    &::before {
+        content: "";
+        background-color: rgba(0,0,0,0.8);
+        position: fixed;
+        z-index: 145;
+        width: 100%;
+        height: 100%;
+        top: 0;
+    }
+}
+
+
+body:not(.off) .off-canvas {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+
+.maps {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    * {
+        cursor: pointer !important;
+    } 
+}
+
+
+*:focus-visible {
+    outline: none;
+}
+
+
+
+.MuiBadge-badge {
+    z-index: 1000000 !important;
 }

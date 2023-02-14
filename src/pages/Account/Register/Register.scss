@@ -1,0 +1,8 @@
+@import "./../../../components/mixin";
+
+.input-group-2 {
+
+    @include responsive-1000 {
+        padding-top: 0 !important;
+    }
+}

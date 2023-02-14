@@ -1,9 +1,10 @@
 interface IClient {
     id: string
     name: string
-    photo: string
+    lastName: string
     email: string
-    phoneNumber: string
+    phoneNumber: string,
+    fileString: string
 }
 
 export default IClient;

@@ -1,0 +1,51 @@
+@import "./../../../components/mixin";
+
+.list-product-generate-order {
+    background-color: transparent;
+}
+
+
+
+:root {
+    --column-width-1: 65%;
+    --column-width-2: 100% - var(--column-width-1);
+}
+
+
+.grid-list-generate-order {
+    display: flex;
+
+    
+    & > *:nth-child(1) {
+        width: 65%;
+    }
+    
+    & > *:nth-child(2) {
+        width: 35%;
+    }
+
+
+    @include responsive-1330 {
+        flex-direction: column-reverse;
+
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+
+
+        & > *:nth-child(1) {
+            padding-right: 20px;
+        }
+
+        & > * {
+            width: 100% !important;
+        }
+    }
+}
+
+
+@include responsive-1330 {
+    :root {
+        --column-width-1: 50% !important;
+    }
+}

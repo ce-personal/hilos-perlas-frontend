@@ -1,0 +1,124 @@
+@import "./../../components/mixin";
+
+.shop {
+    & > .title {
+        max-width: 768px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+    
+        .title-image {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+    
+            
+            img {
+                width: 48px;
+                height: 48px;
+                object-fit: cover;
+                border-radius: 100%;
+            }
+    
+            h3 {
+                font-size: 16px;
+                // font-weight: 500;
+                line-height: 22px;
+                margin-bottom: 0;
+                margin-top: 12px;
+            }
+    
+            p {
+                padding: 4px 0px;
+            }
+        }
+    
+        .title-button {
+            display: flex;
+            gap: 7px;
+    
+            button {
+                gap: 1px;
+            }
+        }
+    }
+    
+    .files {
+        margin: 28px auto;
+    
+        &-main {
+            width: 100%;
+            max-width: 1024px;
+            margin: auto;
+    
+            img {            
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                border-radius: 8px;
+    
+                object-fit: contain;
+            }
+        }
+    }
+    
+    .description {
+        width: 100%;
+        max-width: 752px;
+        margin: auto;
+        margin: 28px auto;
+        
+    
+        h4 {
+            font-family: "Haas Grot Text R Web","Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 32px;
+    
+            white-space: pre-wrap;
+        }
+    }
+    
+    
+    .company {
+        &-logo {
+            display: flex; 
+            position: relative;
+    
+            img {
+                width: 242px;
+                margin: auto;
+                position: relative;
+                z-index: 1;
+            }
+    
+            .line {
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                background-color: #00000020;
+                top: calc(50% - 0.5px);
+            }
+        }
+    }
+
+
+
+
+    .title-button {
+        @include responsive-885 {
+            position: fixed;
+
+            bottom: 20px;
+            left: 0;
+
+            width: 100%;
+            left: 0;
+            margin: auto;
+            justify-content: center;
+
+            z-index: 1000000000;
+        }
+    }
+}

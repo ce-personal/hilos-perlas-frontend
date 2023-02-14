@@ -1,10 +1,18 @@
+import { ThemeProvider } from "@emotion/react";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AccountLogin from "../pages/Account/Login";
+import AccountRegister from "../pages/Account/Register/Register";
 
 
 import HomeIndex from "../pages/Home/Index";
-
-
+import { theme } from "../theme";
+import AccountProfile from "../pages/Account/Profile";
+import OrderGenerateOrder from "../pages/Order/GenerateOrder/GenerateOrder";
+import FinishOrder from "../pages/Order/Finish/Finish";
+import MyOrders from "../pages/Order/MyOrders/MyOrders";
+import OrderDetails from "../pages/Order/Details";
+import ProductDetail from "../pages/Product/Detail";
 
 
 function RouteView() {
@@ -12,12 +20,54 @@ function RouteView() {
         {
             element: <HomeIndex />,
             path: "/"
+        },
+        
+        {
+            element: <AccountLogin />,
+            path: "/Account/Login"
+        },
+        {
+            element: <AccountRegister />,
+            path: "/Account/Register"
+        },
+        {
+            element: <AccountProfile />,
+            path: "/Account/Profile"
+        },
+        
+        
+
+        {
+            element: <OrderGenerateOrder />,
+            path: "/Order/GenerateOrder"
+        },
+        {
+            element: <FinishOrder />,
+            path: "/Order/Finish"
+        },
+        {
+            element: <MyOrders />,
+            path: "/Order/MyOrders"
+        },
+        {
+            element: <OrderDetails />,
+            path: "/Order/Details"
+        },
+
+
+
+
+        {
+            element: <ProductDetail />,
+            path: "/Product/Details"
         }
     ]);
 
     return (
         <GoogleOAuthProvider clientId="325023130727-09031jf2g6p959lf47srnb2kgserk6an.apps.googleusercontent.com">
-            <RouterProvider router={routes} />
+            <ThemeProvider theme={theme}>
+                <RouterProvider router={routes} />
+            </ThemeProvider>
         </GoogleOAuthProvider>
     )
 } 

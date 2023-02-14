@@ -1,0 +1,47 @@
+@import "./../../../components/mixin";
+
+
+:root {
+    --column-width-1: 65%;
+    --column-width-2: 100% - var(--column-width-1);
+}
+
+
+.grid-list-finish-order {
+    display: flex;
+
+    
+    & > *:nth-child(1) {
+        width: 65%;
+    }
+    
+    & > *:nth-child(2) {
+        width: 35%;
+    }
+
+
+    @include responsive-1330 {
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+
+        & > *:nth-child(1) {
+            padding-right: 20px;
+        }
+
+        & > * {
+            width: 100% !important;
+        }
+
+        .map-container {
+            display: none;
+        }
+    }
+}
+
+
+@include responsive-1330 {
+    :root {
+        --column-width-1: 50% !important;
+    }
+}

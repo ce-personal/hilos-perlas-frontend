@@ -4,6 +4,8 @@ interface Order {
     id: string
     userId: string
     date: Date
+    consecutive: number
+    name: string
     ubication: string
     deliveryDate: Date
     status: EStatus
@@ -11,7 +13,7 @@ interface Order {
     user: IClient
 }
 
-enum EStatus {
+export enum EStatus {
     Solicitado,
     Recibido,
     EnProduccion,

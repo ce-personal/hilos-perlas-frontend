@@ -1,12 +1,16 @@
 // @mui
-import { Box, Card, Link, Typography, Stack, Button } from '@mui/material';
+import { Box, Card, Typography, Stack, Button, Link as LinkMUI } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 // components
 import Label from './Label/Index';
 
 // firebase
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { openOffCanvas, toggleOffCanvas } from '../../utils/service/OffCanvas';
+import ProductShop from '../../pages/Product/Shop';
+import ReactDOM, { render } from 'react-dom';
 
 
 
@@ -59,8 +63,8 @@ const StyledHoverProduct = styled("div")({
 
 // ----------------------------------------------------------------------
 
-export default function ShopProductCard({ product }) {
-    const { name, price, status, isEditable } = product.product;
+export default function ShopProductCard({ product, buttonBuy }) {
+    const { name, price, status, isEditable, id } = product.product;
 
     const [cover, setCover] = useState();
     const [loading, setLoading] = useState(false);
@@ -76,7 +80,12 @@ export default function ShopProductCard({ product }) {
 
     useEffect(() => {
         init();
-    });
+    }, []);
+
+
+    const openShowProduct = () => {
+        openOffCanvas("shop-product");
+    };
 
     return (
         <Card sx={{ overflow: 'initial' }}>
@@ -106,20 +115,23 @@ export default function ShopProductCard({ product }) {
             </div>
 
             <Stack spacing={2} sx={{ p: 3 }}>
-                <Link color="inherit" underline="hover">
+                <LinkMUI color="inherit" underline="hover">
                     <Typography variant="subtitle2" noWrap>
                         {name}
                     </Typography>
-                </Link>
+                </LinkMUI>
 
                 <Stack direction="row" alignItems="center" justifyContent="space-between">
                     <Typography variant="subtitle1">
                         C$ {price}
                     </Typography>
-
-                    <Button variant='contained'>
-                        Comprar
-                    </Button>
+                    
+                    {
+                        buttonBuy ? buttonBuy : 
+                            <Button variant='contained' data-product-id={id}>
+                                Comprar
+                            </Button>
+                    }
                 </Stack>
             </Stack>
         </Card>

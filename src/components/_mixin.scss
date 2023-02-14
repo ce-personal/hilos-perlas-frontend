@@ -4,6 +4,12 @@
     }
 }
 
+@mixin responsive-1330 {
+    @media screen and (max-width: 1330px) {
+        @content;
+    }
+}
+
 @mixin responsive-1250 {
     @media screen and (max-width: 1250px) {
         @content;
@@ -16,14 +22,32 @@
     }
 }
 
+@mixin responsive-1190 {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
 @mixin responsive-1024 {
     @media screen and (max-width: 1024px) {
         @content;
     }
 }
 
+@mixin responsive-1000 {
+    @media screen and (max-width: 1000px) {
+        @content;
+    }
+}
+
 @mixin responsive-945 {
     @media screen and (max-width: 945px) {
+        @content;
+    }
+}
+
+@mixin responsive-885 {
+    @media screen and (max-width: 885px) {
         @content;
     }
 }

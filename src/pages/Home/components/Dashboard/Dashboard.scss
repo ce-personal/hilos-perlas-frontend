@@ -25,6 +25,10 @@
             line-height: 62px;
         }
 
+        @include responsive-600 {
+            margin-top: 18px;
+        }
+
         @include responsive-480 {
             font-size: 42px;
             line-height: 50px;
@@ -76,10 +80,6 @@
         @include responsive-768 {
             padding: 12px 20px !important;
             border-radius: 10px;
-        }
-
-        @include responsive-480 {
-            scale: .9;
         }
     }
     
@@ -253,5 +253,17 @@
     @include responsive-600 {
         height: auto;
         padding-bottom: 12px;
+    }
+}
+
+
+
+.btn-orden-now {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    button {
+        min-width: 140px;
     }
 }

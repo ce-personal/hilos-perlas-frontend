@@ -1,13 +1,14 @@
 import { ReactNode } from "react";
+import IClient from "../gen/IClient";
 
 export interface IPropHeader {
 
 }
 
 export interface IStateHeader {
-    manager: {
+    user: IClient,
+    menu: {
         open: boolean,
-        title: string,
-        content: ReactNode
-    },
+        anchorEl: HTMLElement
+    }
 }

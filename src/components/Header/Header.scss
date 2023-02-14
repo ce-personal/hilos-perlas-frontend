@@ -12,7 +12,7 @@ nav {
     }
 
 
-    ul {
+    & > ul {
         display: flex;
         align-items: inherit;
         gap: 15px;
@@ -22,7 +22,7 @@ nav {
 
             img {
                 @include responsive-768 {
-                    width: 25px;
+                    width: 90px;
                 }
             }
         }
@@ -32,13 +32,16 @@ nav {
             font-size: 16px;
             line-height: 20px;
             text-transform: capitalize;
-            color: #333333;
             cursor: pointer;
-
+            
             &.active {
                 font-weight: 700;
             }
+            
 
+            * {
+                color: #333333;
+            }
 
             &:not(.header-logo) {
                 @include responsive-945 {
@@ -73,10 +76,12 @@ nav {
 
     .movil {
         display: none;
-        padding: 12px 20px !important;
 
         @include responsive-768 {
             display: initial;
+            * {
+                display: initial;
+            }
         }
     }
 
@@ -92,6 +97,10 @@ nav {
             width: 125px;
             object-fit: cover;
             border-radius: 15px;
+        }
+
+        @include responsive-600 {
+            margin-top: 12px;
         }
     }
 }

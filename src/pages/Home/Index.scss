@@ -1,0 +1,9 @@
+@import "./../../components/mixin";
+
+body.off {
+    .link-to-shopping-cart {
+        @include responsive-480 {
+            display: none;
+        }
+    }
+}

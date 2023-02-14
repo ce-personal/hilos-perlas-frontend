@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import axios from "axios";
 import React from "react";
 import ShopProductCard from "../../../../components/Card/Card";
@@ -27,10 +28,17 @@ class Product extends React.Component<IPropProduct, IStateProduct> {
                         <p>Cada uno de nuestros productos creados con la mejor calidad posible y una gran emoción de apego con el producto dando un gran resultado. </p>
                     </div>
 
-                    <div className="list-product">    
-                        {
-                            this.state.listProduct.map(a => <ShopProductCard key={a.id} product={a} />)
-                        }
+                    <div className="list-product-cards">  
+                        <Grid container spacing={2}>
+                            {
+                                this.state.listProduct.map(a => (
+                                    // xl={3} lg={3} md={4} xs={6}
+                                    <Grid key={a.product.id} item xl={3} lg={3} md={4} sm={6} xs={12}>
+                                        <ShopProductCard buttonBuy={null} key={a.product.id} product={a} />
+                                    </Grid>
+                                ))
+                            }
+                        </Grid>  
                     </div>
 
                 </div>
