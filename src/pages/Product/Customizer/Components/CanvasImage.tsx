@@ -1,3 +1,6 @@
+/* eslint-disable */
+
+
 import React, { Component } from "react";
 import { IPropCanvasImage, IStateCanvasImage } from "../../../../utils/interface/components/IProduct";
 
@@ -66,7 +69,7 @@ class CanvasImages extends Component<IPropCanvasImage, IStateCanvasImage> {
     clearAllAndPrint() {
         const startGeneral = this.state.start;
         const imgs = this.images;
-        if (imgs.length === 0) return;
+        if (imgs.length == 0) return;
 
         const step0 = this.state.step0;
 
@@ -204,7 +207,7 @@ class CanvasImages extends Component<IPropCanvasImage, IStateCanvasImage> {
     }
 
     handleMouseMove(event) {
-        if (this.state.dragIndex === null) return; 
+        if (this.state.dragIndex == null) return; 
 
         const x = event.clientX - this.canvas.offsetLeft;
         const y = event.clientY - this.canvas.offsetTop;

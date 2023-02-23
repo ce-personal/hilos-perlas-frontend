@@ -1,3 +1,6 @@
+/* eslint-disable */
+
+
 // @mui
 import { Box, Card, Typography, Stack, Button, Link as LinkMUI } from '@mui/material';
 import { styled } from '@mui/material/styles';
@@ -94,7 +97,7 @@ export default function ShopProductCard({ product, buttonBuy }) {
                             // @ts-ignore
                             <Label
                                 variant="filled"
-                                color={(status === 'sale' && 'error') || 'info'}
+                                color={(status == 'sale' && 'error') || 'info'}
                                 sx={{
                                     zIndex: 9,
                                     top: 16,

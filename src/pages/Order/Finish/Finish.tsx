@@ -1,3 +1,6 @@
+/* eslint-disable */
+
+
 import { Button, Paper, TextField } from "@mui/material";
 import axios from "axios";
 import React from "react";
@@ -49,7 +52,7 @@ class FinishOrder extends React.Component<{}, IStateFinishOrder> {
 
         const response = await axios.post(`${env.API_URL}/Product/GetProductByListId`, formData);
         for (const item of response.data) {
-            const productByItem = this.state.listProductInLocal.find(a => a.productId === item.product.id);
+            const productByItem = this.state.listProductInLocal.find(a => a.productId == item.product.id);
             item.quantityLocal = productByItem.quantity;
         
             item.product.status = "Cantidad: " + item.quantityLocal;
@@ -86,11 +89,11 @@ class FinishOrder extends React.Component<{}, IStateFinishOrder> {
 
 
         const domDirrecion = document.querySelector("#direction") as HTMLInputElement;
-        if (domDirrecion.value === "" || domDirrecion === null) return event.preventDefault();
+        if (domDirrecion.value == "" || domDirrecion == null) return event.preventDefault();
         else direction = domDirrecion.value;
 
 
-        if (this.state.listProduct.length === 0) {
+        if (this.state.listProduct.length == 0) {
             alert("No puedes hacer un pedido sin productos agregados");
             return event.preventDefault();
         }

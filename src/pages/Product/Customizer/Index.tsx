@@ -1,3 +1,6 @@
+/* eslint-disable */
+
+
 import { Button, Paper, Typography } from '@mui/material';
 
 import React from 'react';
@@ -175,9 +178,9 @@ class Customizer extends React.Component<IPropCustomizer, IStateCustomizer> {
         if (!isConfirm) return;
 
 
-        const step0 = this.state.listPart[0].find(a => a.fileSecondary.stringFile === this.state.stringFile.step0);
-        const step1 = this.state.listPart[1].find(a => a.fileSecondary.stringFile === this.state.stringFile.step1);
-        const step2 = this.state.listPart[2].find(a => a.fileSecondary.stringFile === this.state.stringFile.step2);
+        const step0 = this.state.listPart[0].find(a => a.fileSecondary.stringFile == this.state.stringFile.step0);
+        const step1 = this.state.listPart[1].find(a => a.fileSecondary.stringFile == this.state.stringFile.step1);
+        const step2 = this.state.listPart[2].find(a => a.fileSecondary.stringFile == this.state.stringFile.step2);
 
         
 

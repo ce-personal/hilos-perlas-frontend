@@ -5,16 +5,16 @@ import { Box } from '@mui/material';
 // ----------------------------------------------------------------------
 
 export const StyledLabel = styled(Box)(({ theme, ownerState }) => {
-  const isLight = theme.palette.mode === 'light';
+  const isLight = theme.palette.mode == 'light';
 
-  const filledVariant = ownerState.variant === 'filled';
+  const filledVariant = ownerState.variant == 'filled';
 
-  const outlinedVariant = ownerState.variant === 'outlined';
+  const outlinedVariant = ownerState.variant == 'outlined';
 
-  const softVariant = ownerState.variant === 'soft';
+  const softVariant = ownerState.variant == 'soft';
 
   const defaultStyle = {
-    ...(ownerState.color === 'default' && {
+    ...(ownerState.color == 'default' && {
       // OUTLINED
       ...(outlinedVariant && {
         backgroundColor: 'transparent',
