@@ -189,7 +189,8 @@ class Customizer extends React.Component<IPropCustomizer, IStateCustomizer> {
                 ${step0 != null ? `Hilo seleccionado: ${step0.name} - Precio: C$ ${step0.price} \n` : ""}
                 ${step1 != null ? `Perla seleccionada: ${step1.name} - Precio: C$ ${step1.price} \n` : ""}
                 ${step2 != null ? `Decoración seleccionada: ${step2.name} - Precio: C$ ${step2.price} \n` : ""}
-                Total a pagar (sin envio): C$ ${ step0.price + (step1?.price || 0) + (step2?.price || 0) }
+                Mano de obra: C$ 12
+                Total a pagar (sin envio): C$ ${ step0.price + (step1?.price || 0) + (step2?.price || 0) + 12 }
             `
         );
 
