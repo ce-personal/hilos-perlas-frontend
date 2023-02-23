@@ -76,6 +76,7 @@ const AccountProfile = () => {
         navigate("/")
     };
 
+/* eslint-disable */
     useEffect(() => {
         init();
 

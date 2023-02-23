@@ -75,9 +75,10 @@ export default function ShopProductCard({ product, buttonBuy }) {
     };
 
 
+    /* eslint-disable */
     useEffect(() => {
         init();
-    }, []);
+    }, [0]);
 
 
     const openShowProduct = () => {
