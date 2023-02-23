@@ -50,7 +50,7 @@ class ButtonEdit extends React.Component<IPropGenerateOrderButtonEdit> {
         if (isNaN(quantity)) return alert("Valor no válido");
         if (quantity > this.props.product.quantity) return alert("Lo sentimos no tenemos esa cantidad en producción");
 
-        if (quantity == 0) this.props.removeProduct(productId);
+        if (quantity === 0) this.props.removeProduct(productId);
         else if (quantity > 0) this.props.changeQuantity(productId, quantity);
     }
 
@@ -89,7 +89,7 @@ class OrderGenerateOrder extends React.Component<IPropGenerateOrder, IStateGener
 
     setUrlRedirect() {
         const userSaveInLocal = localStorage.getItem("user");
-        if (userSaveInLocal == "" || !userSaveInLocal) return this.setState({ urlRedirect: "/Account/Login?redirectTo=/Order/Finish" });
+        if (userSaveInLocal === "" || !userSaveInLocal) return this.setState({ urlRedirect: "/Account/Login?redirectTo=/Order/Finish" });
         const user = JSON.parse(userSaveInLocal);
 
         if (user.id) this.setState({ urlRedirect: "/Order/Finish" });
@@ -103,7 +103,7 @@ class OrderGenerateOrder extends React.Component<IPropGenerateOrder, IStateGener
 
         const response = await axios.post(`${env.API_URL}/Product/GetProductByListId`, formData);
         for (const item of response.data) {
-            const productByItem = this.state.listProductInLocal.find(a => a.productId == item.product.id);
+            const productByItem = this.state.listProductInLocal.find(a => a.productId === item.product.id);
             item.quantityLocal = productByItem.quantity;
         
             item.product.status = "Cantidad: " + item.quantityLocal;
@@ -114,8 +114,8 @@ class OrderGenerateOrder extends React.Component<IPropGenerateOrder, IStateGener
 
 
     changeQuantity(productId: string, quantity: number): void {
-        const product = this.state.listProduct.findIndex(a => a.product.id == productId)
-        const productInLocal = this.state.listProductInLocal.findIndex(a => a.productId == productId)
+        const product = this.state.listProduct.findIndex(a => a.product.id === productId)
+        const productInLocal = this.state.listProductInLocal.findIndex(a => a.productId === productId)
 
         const listProductEdit = this.state.listProduct[product];
         listProductEdit.quantityLocal = quantity;

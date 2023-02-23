@@ -2,7 +2,7 @@ import { Button, ImageList, ImageListItem } from '@mui/material';
 import axios from 'axios';
 
 import env from '../../../env';
-import React, { MouseEventHandler, ReactEventHandler } from 'react';
+import React from 'react';
 import { IPropProductShop, IStateProductShop } from '../../../utils/interface/components/IStateProductShop';
 
 
@@ -36,7 +36,7 @@ class ProductShop extends React.Component<IPropProductShop, IStateProductShop> {
     }
 
     async componentDidUpdate(prevProps: Readonly<IPropProductShop>, prevState: Readonly<IStateProductShop>): Promise<void> {
-        if (this.props.productId != prevProps.productId) {
+        if (this.props.productId !== prevProps.productId) {
             this.updateView();
         }
     }
@@ -62,12 +62,12 @@ class ProductShop extends React.Component<IPropProductShop, IStateProductShop> {
 
     isToAddToShopingCart() {
         let localStorageValue: Array<IShopingCart> = JSON.parse(localStorage.getItem(env.localStorage.values.shoppingCart)) || [];
-        return localStorageValue.find(a => a.productId == this.props.productId) != null;
+        return localStorageValue.find(a => a.productId == this.props.productId) !== null;
     }
 
     removeToShoppingCart() {
         let localStorageValue: Array<IShopingCart> = JSON.parse(localStorage.getItem(env.localStorage.values.shoppingCart)) || [];
-        localStorageValue = localStorageValue.filter(a => a.productId != this.props.productId);
+        localStorageValue = localStorageValue.filter(a => a.productId !== this.props.productId);
 
         localStorage.setItem(env.localStorage.values.shoppingCart, JSON.stringify(localStorageValue));    
 

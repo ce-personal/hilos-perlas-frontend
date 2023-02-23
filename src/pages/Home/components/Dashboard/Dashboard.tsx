@@ -4,7 +4,7 @@ import "./Dashboard.scss";
 
 import { Button } from "@mui/material";
 import { goToElement } from "../../../../utils/service/GoToPage";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class HomeDashboard extends React.Component {
     render(): React.ReactNode {

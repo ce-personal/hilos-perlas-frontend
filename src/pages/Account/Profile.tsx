@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Typography, Snackbar, AppBar, Paper } from '@mui/material';
+import { Box, Container, Grid, Typography, Snackbar, Paper } from '@mui/material';
 import { AccountProfileEdit } from './edit/account-profile';
 import { AccountProfileDetails } from './edit/account-profile-details';
 

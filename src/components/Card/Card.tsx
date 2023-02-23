@@ -7,10 +7,7 @@ import Label from './Label/Index';
 
 // firebase
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { openOffCanvas, toggleOffCanvas } from '../../utils/service/OffCanvas';
-import ProductShop from '../../pages/Product/Shop/Shop';
-import ReactDOM, { render } from 'react-dom';
+import { openOffCanvas } from '../../utils/service/OffCanvas';
 
 
 

@@ -12,9 +12,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
         fontSize: 14,
     },
 
-    ["&:focus-visible"]: {
-        outline: 'auto 0.1px #00000010'
-    }
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
@@ -25,13 +22,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:last-child td, &:last-child th': {
         border: 0,
     },
-}));
-
-const ContainerButtonOrder = styled("div")(() => ({
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '12px',
-    marginTop: '18px'
 }));
 
 class TableProductOrder extends React.Component<IPropTableProductOrder> {

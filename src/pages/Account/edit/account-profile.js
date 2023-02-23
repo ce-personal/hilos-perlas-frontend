@@ -26,6 +26,7 @@ const user = {
 export const AccountProfileEdit = (props) => {
     const [cover, setCover] = useState("");
 
+    console.log(cover);
     const createInputToImage = () => {
         const input = document.createElement("input");
         input.type = 'file';

@@ -175,10 +175,9 @@ class Customizer extends React.Component<IPropCustomizer, IStateCustomizer> {
         if (!isConfirm) return;
 
 
-        let listPiece = "";
-        const step0 = this.state.listPart[0].find(a => a.fileSecondary.stringFile == this.state.stringFile.step0);
-        const step1 = this.state.listPart[1].find(a => a.fileSecondary.stringFile == this.state.stringFile.step1);
-        const step2 = this.state.listPart[2].find(a => a.fileSecondary.stringFile == this.state.stringFile.step2);
+        const step0 = this.state.listPart[0].find(a => a.fileSecondary.stringFile === this.state.stringFile.step0);
+        const step1 = this.state.listPart[1].find(a => a.fileSecondary.stringFile === this.state.stringFile.step1);
+        const step2 = this.state.listPart[2].find(a => a.fileSecondary.stringFile === this.state.stringFile.step2);
 
         
 
@@ -201,7 +200,7 @@ class Customizer extends React.Component<IPropCustomizer, IStateCustomizer> {
         formData.append("clientId", clientId);
 
 
-        const response = await axios.post(`${env.API_URL}/Part/PostSaveProductCustomByPart`, formData);
+        await axios.post(`${env.API_URL}/Part/PostSaveProductCustomByPart`, formData);
 
         alert("Gracias por realizar su pedido. Nos comunicaremos con usted para terminar de planter todo")
     }
