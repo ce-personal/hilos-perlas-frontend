@@ -7,7 +7,7 @@ import env from "../../env";
 import { IPropHome, IStateHome } from "../../utils/interface/components/IHome";
 import ILocalShopingCart from "../../utils/interface/localstorage/IShopingCart";
 import { openOffCanvas, toggleOffCanvas } from "../../utils/service/OffCanvas";
-import ProductShop from "../Product/Shop";
+import ProductShop from "../Product/Shop/Shop";
 import BestColletion from "./components/BestColletion/BestColletion";
 import HomeDashboard from "./components/Dashboard/Dashboard";
 import Inspiration from "./components/Inspiration/Inspiration";

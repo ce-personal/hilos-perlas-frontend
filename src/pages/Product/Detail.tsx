@@ -1,14 +1,12 @@
 import { Button, ImageList, ImageListItem, Paper } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, Navigate, NavLink, Route, Router, useNavigate } from "react-router-dom";
-import Footer from "../../components/Footer/Footer";
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import env from "../../env";
 import { IPropProductDetail, IStateProductDetail } from "../../utils/interface/components/IProduct";
-import IFile from "../../utils/interface/shared/IFile";
-import IProduct from "../../utils/interface/shop/IProduct";
-import "./Shop.scss";
+
+import "./Shop/Shop.scss";
 
 
 

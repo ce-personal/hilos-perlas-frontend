@@ -10,7 +10,7 @@ class HomeDashboard extends React.Component {
     render(): React.ReactNode {
         return (
             <main className="dashboard">
-                <Header />
+                <Header isDashboard={true}/>
 
 
                 <div className="container dashboard-row">

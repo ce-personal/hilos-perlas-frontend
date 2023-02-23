@@ -259,11 +259,14 @@
 
 
 .btn-orden-now {
-    width: 100%;
-    display: flex;
-    justify-content: center;
 
-    button {
-        min-width: 140px;
+    @include responsive-600 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    
+        button {
+            min-width: 140px;
+        }
     }
 }

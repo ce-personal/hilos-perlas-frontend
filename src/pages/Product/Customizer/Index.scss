@@ -1,0 +1,45 @@
+.group-col {
+    height: calc(100% - 90px);
+    display: flex;
+    background-color: #f4f6f9;
+
+    & > div {
+        height: 100%;
+        width: 50%;
+    }
+
+    .col-2 {
+        height: 100%;
+        border-left: 1px solid #dddddd90;
+        background-color: white;
+
+        display: grid;
+        grid-template-rows: 40px calc(100% - 112px) 72px;
+
+        .step-section {
+            & > div  >div {
+                height: 72px;
+            }
+        }
+
+        .custom-section {
+            height: 100%;
+
+            .MuiBox-root {
+                height: 95%;
+                margin: auto;
+                margin-top: 2.5%;
+                
+                width: 94%;
+                overflow-y: scroll;
+            }
+        }
+    }
+
+    .list-button {
+        display: flex;
+        justify-content: center;
+        margin-top: -22.25px;
+        gap: 9px;
+    }
+}

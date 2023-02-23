@@ -1,17 +1,17 @@
 import { Button, ImageList, ImageListItem } from '@mui/material';
 import axios from 'axios';
 
-import env from './../../env';
+import env from '../../../env';
 import React, { MouseEventHandler, ReactEventHandler } from 'react';
-import { IPropProductShop, IStateProductShop } from '../../utils/interface/components/IStateProductShop';
+import { IPropProductShop, IStateProductShop } from '../../../utils/interface/components/IStateProductShop';
 
 
 import LocalGroceryStoreRoundedIcon from '@mui/icons-material/LocalGroceryStoreRounded';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 
 import "./Shop.scss";
-import BestColletion from '../Home/components/BestColletion/BestColletion';
-import IShopingCart from '../../utils/interface/localstorage/IShopingCart';
+import BestColletion from '../../Home/components/BestColletion/BestColletion';
+import IShopingCart from '../../../utils/interface/localstorage/IShopingCart';
 import { Link } from 'react-router-dom';
 
 

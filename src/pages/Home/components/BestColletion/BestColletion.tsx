@@ -9,7 +9,7 @@ import { Button } from "@mui/material";
 import IProduct from "../../../../utils/interface/shop/IProduct";
 import { openOffCanvas } from "../../../../utils/service/OffCanvas";
 import ReactDOM from "react-dom";
-import ProductShop from "../../../Product/Shop";
+import ProductShop from "../../../Product/Shop/Shop";
 
 
 class BestColletion extends React.Component<IPropBestColletion, IStateBestColletion> {

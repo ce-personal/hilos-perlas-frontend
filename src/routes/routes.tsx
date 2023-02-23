@@ -13,6 +13,8 @@ import FinishOrder from "../pages/Order/Finish/Finish";
 import MyOrders from "../pages/Order/MyOrders/MyOrders";
 import OrderDetails from "../pages/Order/Details";
 import ProductDetail from "../pages/Product/Detail";
+import ProductCustomizer from "../pages/Product/Customizer/Index";
+
 
 
 function RouteView() {
@@ -60,6 +62,10 @@ function RouteView() {
         {
             element: <ProductDetail />,
             path: "/Product/Details"
+        },
+        {
+            element: <ProductCustomizer />,
+            path: "/Product/Customizer"
         }
     ]);
 

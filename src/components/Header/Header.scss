@@ -1,11 +1,14 @@
 @import "./../mixin";
 
+
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     height: 145px;
+
+
     
     * {
         list-style: none;
@@ -16,6 +19,7 @@ nav {
         display: flex;
         align-items: inherit;
         gap: 15px;
+        height: inherit;
 
         .header-logo {
             margin-right: 50px;
@@ -104,6 +108,27 @@ nav {
         }
     }
 }
+
+.MuiPaper-root {
+    nav {
+        height: 90px;
+    }    
+
+    .header-logo {
+        overflow: hidden;
+        height: inherit;
+        width: 134px;
+
+        img {
+            width: 165px;
+            margin-top: -36px;
+            margin-left: -10px;
+        }
+    }
+
+
+}
+
 
 .btn-log-in {
     font-weight: 500 !important;

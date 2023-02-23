@@ -1,6 +1,6 @@
 import { Avatar, Button, Divider, ListItemIcon, ListItemText, Menu, MenuItem, MenuList, Paper } from "@mui/material";
 import React from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { IPropHeader, IStateHeader } from "../../utils/interface/components/IHeader";
 import { goToElement } from "../../utils/service/GoToPage";
 import "./Header.scss";
@@ -8,6 +8,11 @@ import "./Header.scss";
 
 class Header extends React.Component<IPropHeader, IStateHeader> {
     menuList = [
+        {
+            path: "/Product/Customizer",
+            text: "Pide a tu gusto",
+            ref: ""
+        },
         {
             path: "/",
             text: "Mejor colección",
@@ -22,12 +27,7 @@ class Header extends React.Component<IPropHeader, IStateHeader> {
             path: "/",
             text: "Nuestros productos",
             ref: "our-product"
-        },
-        {
-            path: "/",
-            text: "Sobre nosotros",
-            ref: "about"
-        },
+        }
     ];
 
     constructor(props) {
@@ -70,7 +70,14 @@ class Header extends React.Component<IPropHeader, IStateHeader> {
                         <ul>
                             <li className="header-logo">
                                 <Link to={"/"}>
-                                    <img src="/assets/Logo.png" alt="Logo" />
+                                    {
+                                        this.props.isDashboard 
+                                            ? 
+                                                <img src="/assets/Logo.png" alt="Logo" />
+                                            :
+                                                <img src="/assets/Logo-text.png" alt="Logo" />
+
+                                    }
                                 </Link>
                             </li>
 

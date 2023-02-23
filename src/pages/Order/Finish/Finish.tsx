@@ -142,7 +142,7 @@ class FinishOrder extends React.Component<{}, IStateFinishOrder> {
                 </Paper>
                 
 
-                <main style={{ height: 'calc(100% - 185px)' }} className="grid-list-finish-order">
+                <main style={{ height: 'calc(100% - 95px)' }} className="grid-list-finish-order">
                     <div className="map-container">
                         <Map changeValueMarker={this.changeValueMarker}/>
                     </div>
