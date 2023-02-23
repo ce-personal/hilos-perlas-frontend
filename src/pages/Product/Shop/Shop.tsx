@@ -38,14 +38,14 @@ class ProductShop extends React.Component<IPropProductShop, IStateProductShop> {
     }
 
     async componentDidUpdate(prevProps: Readonly<IPropProductShop>, prevState: Readonly<IStateProductShop>): Promise<void> {
-        if (this.props.productId !== prevProps.productId) {
+        if (this.props.productId != prevProps.productId) {
             this.updateView();
         }
     }
 
 
     async componentDidMount(): Promise<void> {
-        if (this.props.productId === "") return;
+        if (this.props.productId == "") return;
         this.updateView();
     }
 
@@ -64,12 +64,12 @@ class ProductShop extends React.Component<IPropProductShop, IStateProductShop> {
 
     isToAddToShopingCart() {
         let localStorageValue: Array<IShopingCart> = JSON.parse(localStorage.getItem(env.localStorage.values.shoppingCart)) || [];
-        return localStorageValue.find(a => a.productId == this.props.productId) !== null;
+        return localStorageValue.find(a => a.productId == this.props.productId) != null;
     }
 
     removeToShoppingCart() {
         let localStorageValue: Array<IShopingCart> = JSON.parse(localStorage.getItem(env.localStorage.values.shoppingCart)) || [];
-        localStorageValue = localStorageValue.filter(a => a.productId !== this.props.productId);
+        localStorageValue = localStorageValue.filter(a => a.productId != this.props.productId);
 
         localStorage.setItem(env.localStorage.values.shoppingCart, JSON.stringify(localStorageValue));    
 
