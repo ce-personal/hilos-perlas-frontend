@@ -1,4 +1,4 @@
-import { Avatar, Button, Divider, ListItemIcon, ListItemText, Menu, MenuItem, MenuList, Paper } from "@mui/material";
+import { Avatar, Button, Divider, ListItemText, Menu, MenuItem, MenuList } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { IPropHeader, IStateHeader } from "../../utils/interface/components/IHeader";
