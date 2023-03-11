@@ -9,80 +9,12 @@ import "./Index.scss";
 import Header from '../../../components/Header/Header';
 import StepByCustomizer from './Components/Steps';
 import ImageListForStep from './Components/ImageListForStep';
-import { IPropCustomizer, IStateCustomizer } from '../../../utils/interface/components/IProduct';
+import { IPiece, IPropCustomizer, IStateCustomizer } from '../../../utils/interface/components/IProduct';
 import axios from 'axios';
 import env from '../../../env';
 import CanvasImages from './Components/CanvasImage';
-
-
-
-// class CanvasManage extends React.Component<any, any> {
-//     canvas: HTMLCanvasElement;
-//     ctx: CanvasRenderingContext2D;
-//     constructor(props) {
-//         super(props);
-
-
-//     }
-
-//     componentDidMount(): void {
-//         this.canvas = document.querySelector("#canvas-manage");
-//         this.ctx = this.canvas.getContext("2d");
-
-
-//         this.canvas.width = this.canvas.parentElement.offsetWidth;
-//         this.canvas.height = this.canvas.parentElement.offsetHeight;
-
-//         this.addImageStep0InCanvas("https://firebasestorage.googleapis.com/v0/b/nothing-01-01-01.appspot.com/o/images%2FPSX_20230222_180804.png?alt=media&token=b7e54c02-801b-4da1-bf0e-d6b98b874f29?w=248&fit=crop&auto=format");
-//         this.addImageStep1InCanvas("https://firebasestorage.googleapis.com/v0/b/nothing-01-01-01.appspot.com/o/images%2F1677111572736.png?alt=media&token=5c570934-91af-48dd-b7bc-65561bfa271f");
-//     }
-
-//     addImageStep0InCanvas(stringFile: string) {
-//         var image = new Image();
-//         image.src = stringFile;
-        
-        
-//         image.onload = () => {
-//             const porcentageRadio = (image.height / image.width) * 100; 
-
-//             const width = 300;
-//             const height = width * (porcentageRadio / 100);
-
-//             const x = (this.canvas.width / 2) - (width / 2) - 20;
-//             const y = (this.canvas.height / 2) - (height / 2);
-
-//             this.ctx.drawImage(image, x, y, width, height);
-//         }
-//     }
-
-//     addImageStep1InCanvas(stringFile: string) {
-//         var image = new Image();
-//         image.src = stringFile;
-        
-        
-//         image.onload = () => {
-//             const porcentageRadio = (image.height / image.width) * 100; 
-
-//             const width = 80;
-//             const height = width * (porcentageRadio / 100);
-
-//             const x = (this.canvas.width / 2) - (width / 2) - 20;
-//             const y = (this.canvas.height / 2) - (height / 2);
-
-//             this.ctx.drawImage(image, x, y, width, height);
-//         }
-
-//         image.onclick = (a) => console.log(a);
-//     }
-
-//     render(): React.ReactNode {
-//         return (
-//             <canvas id="canvas-manage" style={{ display: 'flex', margin: 'auto', borderRadius: '5px' }}></canvas>
-//         )
-//     }
-// }
-
-
+import { getDownloadURL, getStorage, ref, StringFormat, uploadBytes, uploadString } from 'firebase/storage';
+import appFireBase from '../../../utils/register-firebase';
 
 
 class Customizer extends React.Component<IPropCustomizer, IStateCustomizer> {
@@ -93,10 +25,13 @@ class Customizer extends React.Component<IPropCustomizer, IStateCustomizer> {
         this.state = {
             listPart: [],
             listPartSelected: [],
+            listPartSelectedBuy: [],
+
             stepSelected: 0,
             completed: {},
 
             stringFile: {
+                // step0: "https://firebasestorage.googleapis.com/v0/b/nothing-01-01-01.appspot.com/o/images%2FPSX_20230222_180804.png?alt=media&token=f64ff86d-93b6-4fad-8292-b8a79cf0e2eb",
                 step0: "",
                 step1: "",
                 step2: ""
@@ -104,13 +39,16 @@ class Customizer extends React.Component<IPropCustomizer, IStateCustomizer> {
         };
 
         document.body.style.backgroundColor = "#f5f5f5";
+        document.body.style.overflowX = 'hidden';
+
         this.changeListPartSelected = this.changeListPartSelected.bind(this);
-        this.changeStep0 = this.changeStep0.bind(this);
-        this.changeStep1 = this.changeStep1.bind(this);
-        this.changeStep2 = this.changeStep2.bind(this);
+        this.getFileByPartId = this.getFileByPartId.bind(this);
     }
 
     componentDidMount(): void {
+        if (!localStorage.user) return alert("Para usar esta funcionalidad necesitas tener una cuenta creada o iniciar sesión.");
+        
+
         this.loadListPart();
     }
 
@@ -132,81 +70,137 @@ class Customizer extends React.Component<IPropCustomizer, IStateCustomizer> {
         this.setState({ listPartSelected: this.state.listPart[index], stepSelected: index });
     }
 
-    changeStep0(stringFile) {
-        const step = this.state.stringFile;
-        step.step0 = stringFile;
 
-        this.setState({ stringFile: step });
-        (window as any).addImageStep0InCanvas(stringFile);
+    async getFileByPartId(partId: string, step: number) {
+        const part = await axios.get(`${env.API_URL}/Part/GetPartByPartId`, { params: { partId } });
+        const listFile = await axios.get(`${env.API_URL}/Part/GetListFileByPartId`, { params: { partId } });
+        let listFileSeleted = [];
+
+        if (listFile.data.length > 1) {
+            const promptValue = prompt(part.data.description);
+            if (promptValue == "") return alert("Se necesita un valor.");
+
+            for (const letter of promptValue.split("")) {
+                const letterModel = listFile.data.find(a => a.name.toLowerCase() == letter.toLowerCase());
+                if (letterModel) listFileSeleted.push(letterModel);
+            }
+        }
+
+        else {
+            listFileSeleted.push(listFile.data[0]);
+        }
+
+
+        let listPart: Array<IPiece> = [];
+
+        for (const item of listFileSeleted) {
+            switch (step) {
+                case 0: 
+                    (window as any).addImageStep0InCanvas(item.file.stringFile);
+                    break
+                
+                case 1: {
+                    const part = await (window as any).addImageStep1InCanvas(item.file.stringFile);
+                    listPart.push(part);
+                    break;
+                }
+                
+                case 2: 
+                    (window as any).addImageStep2InCanvas(item.file.stringFile);            
+                    break;
+            }
+        }
+
+
+        let last = listPart[0];
+        for (const item of listPart) {
+            if (last == item) continue;
+            
+            item.x = last.x + item.width;
+            last = item;
+        }
+
         
+        (window as any).reOrderImageByStep(listPart);
+        
+
+        for (const item of listFileSeleted) {
+            item.step = step;
+        }
+
+
+        if (step == 0) {
+            let exist = this.state.listPartSelectedBuy.find(a => a.id == listFileSeleted[0].id);
+            if (exist) return;
+        } 
+
+        let listPartSelected = this.state.listPartSelectedBuy;
+        listPartSelected = [...listPartSelected, ...listFileSeleted];
+        
+
+
+        this.setState({ listPartSelectedBuy: listPartSelected });
+
+
         const objComplete = this.state.completed;
-        objComplete[0] = true;
+        objComplete[step] = true;
         this.setState(objComplete);
     }
-
-    changeStep1(stringFile) {
-        const step = this.state.stringFile;
-        step.step1 = stringFile;
-
-        this.setState({ stringFile: step });
-        (window as any).addImageStep1InCanvas(stringFile);
-
-        const objComplete = this.state.completed;
-        objComplete[1] = true;
-        this.setState(objComplete);
-    }
-
-    changeStep2(stringFile) {
-        const step = this.state.stringFile;
-        step.step2 = stringFile;
-
-        this.setState({ stringFile: step });
-        const objComplete = this.state.completed;
-        objComplete[2] = true;
-        this.setState(objComplete);
-
-        (window as any).addImageStep2InCanvas(stringFile);
-    }
-
 
 
 
     async continueProduct() {
-        if (!localStorage.user) return alert("Necesitas una cuenta.");
-
         const isConfirm = window.confirm("Estás seguro que deseas cnotinuar con la solicitud del producto dado. (El resultado final no será exacta, pero si muy parecido)");
         if (!isConfirm) return;
 
 
-        const step0 = this.state.listPart[0].find(a => a.fileSecondary.stringFile == this.state.stringFile.step0);
-        const step1 = this.state.listPart[1].find(a => a.fileSecondary.stringFile == this.state.stringFile.step1);
-        const step2 = this.state.listPart[2].find(a => a.fileSecondary.stringFile == this.state.stringFile.step2);
+        const step0 = this.state.listPartSelectedBuy.filter(a => a.step == 0);
+        const step1 = this.state.listPartSelectedBuy.filter(a => a.step == 1);
+        const step2 = this.state.listPartSelectedBuy.filter(a => a.step == 2);
 
+        let totalFactura = 0;
+        let factura = "";
+        factura = "Resultado de su producto: \n";
+
+        factura += `    Hilo: ${step0[0].part.name} - (C$ ${step0[0].part.price}) \n`;
+        totalFactura += step0[0].part.price;
+        
+        for (const item of step1) {
+            factura += `    Perla: ${item.part.name} - (C$ ${item.part.price}) \n`;
+            totalFactura += item.part.price;
+        }
+        
+        
+        for (const item of step2) {
+            factura += `    Decoraciónes: ${item.part.name} - (C$ ${item.part.price}) \n`;
+            totalFactura += item.part.price;
+        }
+
+
+        factura += `Total (sin envio): C$ ${totalFactura}.`;
+        confirm(factura);
+
+
+
+        const storage = getStorage(appFireBase);
+        const storageRef = ref(storage, 'images/custom/' + new Date());
         
 
-        const result = window.confirm(
-            `Resultado de su producto: \n
-                ${step0 != null ? `Hilo seleccionado: ${step0.name} - Precio: C$ ${step0.price} \n` : ""}
-                ${step1 != null ? `Perla seleccionada: ${step1.name} - Precio: C$ ${step1.price} \n` : ""}
-                ${step2 != null ? `Decoración seleccionada: ${step2.name} - Precio: C$ ${step2.price} \n` : ""}
-                Mano de obra: C$ 12
-                Total a pagar (sin envio): C$ ${ step0.price + (step1?.price || 0) + (step2?.price || 0) + 12 }
-            `
-        );
+        // @ts-ignore
+        // const canvasImage = document.querySelector(".canvas-customizer").toDataURL();
 
-        if (!result) return;
+        // await uploadString(storageRef, canvasImage, StringFormat.BASE64);
+        // const responseDownLoad = await getDownloadURL(storageRef);     
 
         const formData = new FormData();
-        const clientId = JSON.parse(localStorage.user).id
-        formData.append("part0", step0.id);
-        formData.append("part1", step1?.id);
-        formData.append("part2", step2?.id);
-        formData.append("clientId", clientId);
+        formData.append("clientId", JSON.parse(localStorage.user).id);
+        formData.append("factura", factura);
+        // formData.append("image", responseDownLoad);
 
+        await axios.post(`${env.API_URL}/Part/SendProductCustom`, formData);
 
-        await axios.post(`${env.API_URL}/Part/PostSaveProductCustomByPart`, formData);
-
-        alert("Gracias por realizar su pedido. Nos comunicaremos con usted para terminar de planter todo")
+    
+        alert("Se recomienda enviar la imagen a hilosyperlas5@gmail.com y ahi obtendra mayor detalle");
     }
 
 
@@ -222,9 +216,9 @@ class Customizer extends React.Component<IPropCustomizer, IStateCustomizer> {
                 <main className='group-col'>
                     <div className="col-1" style={{ display: 'flex' }}>
                         <CanvasImages 
-                            step0File={this.state.stringFile.step0}
-                            step1File={this.state.stringFile.step1}
-                            step2File={this.state.stringFile.step2}
+                            step0File={this.state?.stringFile.step0}
+                            step1File={this.state?.stringFile.step1}
+                            step2File={this.state?.stringFile.step2}
                         />
 
                     </div>
@@ -233,14 +227,16 @@ class Customizer extends React.Component<IPropCustomizer, IStateCustomizer> {
                         <Typography variant='h6' textAlign={'center'} marginTop="8px">Modifica todo a su gusto</Typography>
 
                         <div className='custom-section'>
-                            <ImageListForStep index={this.state.stepSelected} onChangeImage={[this.changeStep0, this.changeStep1, this.changeStep2]} listPart={this.state.listPartSelected}/>
+                            <ImageListForStep index={this.state.stepSelected} onChangeImage={this.getFileByPartId} listPart={this.state.listPartSelected}/>
                         </div>
 
                         <StepByCustomizer completed={this.state.completed} changeListPartSelected={this.changeListPartSelected} />
                     </div>
                 </main>
 
-                <Button onClick={() => this.continueProduct()} variant='outlined' style={{ position: 'absolute', right: 'calc(50% + 12px)', bottom: '12px' }}>Pedir pieza</Button>
+                
+
+                <Button onClick={() => this.continueProduct()} variant='outlined' style={{ position: 'absolute', right: 'calc(50% + 12px)', bottom: '12px' }}>Agregar y seguir comprando</Button>
             </React.Fragment>
         );
     }

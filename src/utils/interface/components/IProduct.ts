@@ -37,13 +37,14 @@ export interface IPropCustomizer {}
 export interface IStateCustomizer {
     listPart: Array<Array<any>>
     listPartSelected: Array<any>
+    listPartSelectedBuy: Array<any>
 
     completed: {}
     
     stringFile: {
-        step0: "",
-        step1: "",
-        step2: ""
+        step0: string,
+        step1: string,
+        step2: string
     }
 
     stepSelected: number
@@ -56,32 +57,22 @@ export interface IPropCanvasImage {
     step1File: string
     step2File: string
 }
+
+
+
+export interface IPiece {
+    width: number,
+    height: number,
+    x: number,
+    y: number,
+    image: HTMLImageElement
+
+    porcentageRadio: number,
+    step: number
+
+    index: number
+}
 export interface IStateCanvasImage {
-    dragIndex: number
-
-    start: {
-        1: {
-            width: number,
-            height: number,
-            positionX: number,
-            positionY: number
-        },
-        2: {
-            width: number,
-            height: number,
-            positionX: number,
-            positionY: number
-        },
-    },
-
-    step0: {
-        x: number,
-        y: number,
-
-        width: number,
-        height: number,
-        porcentageRadio: number,
-
-        image: any
-    }
+    dragIndex: IPiece | null
+    listPart: Array<IPiece>
 }

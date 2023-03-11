@@ -235,6 +235,8 @@
             line-height: 34px;
             color: #333333;
 
+            white-space: pre-wrap;
+
             @include responsive-945 {
                 font-size: 13px;
                 line-height: 28px;

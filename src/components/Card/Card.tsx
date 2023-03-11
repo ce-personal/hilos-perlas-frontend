@@ -83,11 +83,6 @@ export default function ShopProductCard({ product, buttonBuy }) {
         init();
     }, [0]);
 
-
-    const openShowProduct = () => {
-        openOffCanvas("shop-product");
-    };
-
     return (
         <Card sx={{ overflow: 'initial' }}>
             <div style={{ position: 'relative' }}>

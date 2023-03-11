@@ -59,11 +59,6 @@ class BestColletion extends React.Component<IPropBestColletion, IStateBestCollet
                 {this.state.dom}
                 <div className="title">
                     <h2>{this.props.title || "Nuestra mejor colección" } </h2>
-
-                    {/* <div className="directional">
-                        <img src={this.directionalImageList.leftDisabled} alt="" />
-                        <img src={this.directionalImageList.rightDisabled} alt="" />
-                    </div> */}
                 </div>
 
 
@@ -85,10 +80,9 @@ class BestColletion extends React.Component<IPropBestColletion, IStateBestCollet
 
                         <p>{this.state.mainProduct?.description || "Cargando..."}</p>
 
-                        <Button variant="contained">
+                        <Button variant="contained" data-product-id={this.state.mainProduct?.id}>
                             Comprar
                         </Button>
-                        {/* <button className="btn btn-primary">Comprar</button> */}
                     </div>
                 </div>
             </main>

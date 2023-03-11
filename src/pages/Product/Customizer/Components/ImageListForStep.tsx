@@ -11,12 +11,12 @@ export default function ImageListForStep(props) {
                 {(props.listPart || []).map((item) => (
                     <ImageListItem key={item.id}>
                         <img
-                            src={`${item.fileMain.stringFile}?w=248&fit=crop&auto=format`}
-                            srcSet={`${item.fileMain.stringFile}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                            src={`${item.mainFile.stringFile}?w=248&fit=crop&auto=format`}
+                            srcSet={`${item.mainFile.stringFile}?w=248&fit=crop&auto=format&dpr=2 2x`}
                             alt={item.name}
                             loading="lazy"
                             style={{ borderRadius: '5px' }}
-                            onClick={() => props.onChangeImage[props.index](item.fileSecondary.stringFile)}
+                            onClick={() => props.onChangeImage(item.id, props.index)}
                         />5
                     </ImageListItem>
                 ))}
